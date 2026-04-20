@@ -1,0 +1,5 @@
+{
+  "name": "mycrt",
+  "description": "نظام أوتوماتيكي لإدارة وتوزيع كروت الشبكة عبر رسائل SMS تلقائية مع لوحة تحكم متكاملة.",
+  "requestFramePermissions": ["camera"]
+}

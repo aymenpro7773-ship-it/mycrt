@@ -1,0 +1,22 @@
+# Node
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Android
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.cxx/
+local.properties
+*.keystore
+!debug.keystore
+
+# IDEs
+.idea/
+.vscode/
+*.swp
+*.swo
+*.DS_Store

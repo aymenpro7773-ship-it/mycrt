@@ -1,0 +1,37 @@
+name: Android CI Build
+
+on:
+  push:
+    branches: [ "main", "master" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build Debug APK
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+          cache: gradle
+
+      - name: Grant Execute Permission for Gradlew
+        run: chmod +x android/gradlew
+        continue-on-error: true
+
+      - name: Build with Gradle
+        run: |
+          cd android
+          ./gradlew assembleDebug --stacktrace
+        continue-on-error: false
+
+      - name: Upload APK Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: mycrt-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
