@@ -1,7 +1,17 @@
 plugins { id 'com.android.application' }
+
 android {
     namespace 'com.example.mycrt'
     compileSdk 34
+
+    sourceSets {
+        main {
+            java.srcDirs = ['src/main/java', 'src/main/kotlin']
+            res.srcDirs = ['src/main/res']
+            manifest.srcFile 'src/main/AndroidManifest.xml'
+        }
+    }
+
     defaultConfig {
         applicationId "com.example.mycrt"
         minSdk 24
@@ -10,7 +20,8 @@ android {
         versionName "1.0"
     }
 }
-// حذفنا جميع الـ dependencies المعقدة لضمان النجاح
+
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'com.google.android.material:material:1.9.0'
 }
