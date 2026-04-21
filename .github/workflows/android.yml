@@ -28,3 +28,4 @@ jobs:
       run: |
         cd android
         ./gradlew assembleDebug --stacktrace
+# Fix node and gradle conflict
