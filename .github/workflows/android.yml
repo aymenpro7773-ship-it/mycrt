@@ -10,8 +10,12 @@ jobs:
         with:
           java-version: '17'
           distribution: 'temurin'
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
       - name: Build APK
         run: |
           cd android
+          # سطر سحري: إنشاء المحرك ذاتياً داخل السيرفر
+          gradle wrapper --gradle-version 8.4
           chmod +x gradlew
-          ./gradlew assembleDebug --no-build-cache --stacktrace
+          ./gradlew assembleDebug --no-daemon
